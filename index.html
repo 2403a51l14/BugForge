@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugForge - Intelligent Bug Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-grid"></div>
+
+    <div class="container">
+        <h1>⚡ BugForge</h1>
+        <p>Intelligent Bug Tracking & Auto-Fix System</p>
+
+        <label>Select Language:</label>
+        <select id="language">
+            <option value="python">Python</option>
+            <option value="c">C</option>
+            <option value="cpp">C++</option>
+            <option value="java">Java</option>
+        </select>
+
+        <textarea id="codeInput" placeholder="Paste your code here..."></textarea>
+
+        <!-- ANALYZE BUTTON -->
+        <button onclick="analyzeCode()">Analyze Code</button>
+
+        <!-- COMPLEXITY BUTTON -->
+        <button onclick="analyzeComplexity()">📊 Analyze Complexity</button>
+
+        <!-- COMPLEXITY RESULT -->
+        <div id="complexityBox" class="result-card" style="display:none;"></div>
+
+        <!-- LOADER -->
+        <div class="loader-box" id="loaderBox">
+            <div class="loader"></div>
+            <p>Parsing code structure...</p>
+            <p>Detecting bugs & anomalies...</p>
+            <p>Generating auto-fix patch...</p>
+            <p>Simulating execution...</p>
+        </div>
+
+        <!-- RESULT BOX -->
+        <div class="result-box" id="resultBox">
+            <h2>Detected Bug</h2>
+            <p id="bugTitle"></p>
+            <p id="bugDesc"></p>
+            <p id="severityLabel"></p>
+            <p id="lineInfo"></p>
+
+            <h2>Code Comparison</h2>
+
+            <div class="compare-box">
+                <div class="code-panel">
+                    <h3>Original Code</h3>
+                    <pre id="originalCode"></pre>
+                </div>
+
+                <div class="code-panel">
+                    <h3>Fixed Code</h3>
+                    <pre id="fixedCode"></pre>
+                </div>
+            </div>
+
+            <!-- DOWNLOAD BUTTON -->
+            <button id="downloadBtn" onclick="downloadFixedCode()">
+                ⬇ Download Fixed Code
+            </button>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="history-section">
+            <h2>🕘 Scan History</h2>
+            <div id="historyBox"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
